@@ -1,16 +1,32 @@
-import React from 'react';
-import {StyleSheet, Dimensions, Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {
+  StyleSheet,
+  Dimensions,
+  Text,
+  View,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import Video from 'react-native-video';
 export default function Post() {
+  const [isPaused, setIsPaused] = useState(false);
+
+  const onPlayPausePress = () => {
+    setIsPaused(!isPaused);
+  };
+
   return (
     <View style={styles.container}>
-      <Video
-        source={{
-          uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-        }}
-        style={styles.video}
-        resizeMode="cover"
-      />
+      <TouchableWithoutFeedback onPress={onPlayPausePress}>
+        <Video
+          source={{
+            uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+          }}
+          style={styles.video}
+          resizeMode="cover"
+          repeat={true}
+          paused={isPaused}
+        />
+      </TouchableWithoutFeedback>
     </View>
   );
 }
