@@ -9,10 +9,29 @@ import {
   View,
   Image,
   TouchableWithoutFeedback,
+  TouchableOpacity,
 } from 'react-native';
 import Video from 'react-native-video';
-export default function Post() {
+export default function Post(props) {
   const [isPaused, setIsPaused] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
+  const [post, setPost] = useState(props.post);
+
+  const onLikePress = () => {
+    if (!isLiked) {
+      setPost({
+        ...post,
+        likes: post.likes + 1,
+      });
+      setIsLiked(true);
+    } else {
+      setPost({
+        ...post,
+        likes: post.likes - 1,
+      });
+      setIsLiked(false);
+    }
+  };
 
   const onPlayPausePress = () => {
     setIsPaused(!isPaused);
@@ -23,7 +42,7 @@ export default function Post() {
       <TouchableWithoutFeedback onPress={onPlayPausePress}>
         <Video
           source={{
-            uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+            uri: post.videoUri,
           }}
           style={styles.video}
           resizeMode="cover"
@@ -37,37 +56,41 @@ export default function Post() {
             <Image
               style={styles.profilePicture}
               source={{
-                uri: 'https://pbs.twimg.com/profile_images/1223706175910211584/tmu8d9fA.jpg',
+                uri: post.user.imageUri,
               }}
             />
           </View>
-          <View style={styles.iconContainer}>
-            <AntDesign name={'heart'} size={35} color={'white'} />
-            <Text style={styles.statsLabel}>234</Text>
-          </View>
-          <View style={styles.iconContainer}>
+          <TouchableOpacity onPress={onLikePress} style={styles.iconContainer}>
+            <AntDesign
+              name={'heart'}
+              size={35}
+              color={isLiked ? 'red' : 'white'}
+            />
+            <Text style={styles.statsLabel}>{post.likes}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.iconContainer}>
             <FontAwesome name={'commenting'} size={35} color={'white'} />
-            <Text style={styles.statsLabel}>234</Text>
-          </View>
+            <Text style={styles.statsLabel}>{post.comments}</Text>
+          </TouchableOpacity>
           <View style={styles.iconContainer}>
             <Entypo name={'share'} size={35} color={'white'} />
-            <Text style={styles.statsLabel}>234</Text>
+            <Text style={styles.statsLabel}>{post.shares}</Text>
           </View>
         </View>
         <View style={styles.bottomContainer}>
           <View>
-            <Text style={styles.handle}>@David Dobrik</Text>
-            <Text style={styles.description}>hahahah funny video</Text>
+            <Text style={styles.handle}>@{post.user.username}</Text>
+            <Text style={styles.description}>{post.description}</Text>
             <View style={styles.songDescContainer}>
               <AntDesign name={'sound'} size={30} color={'white'} />
-              <Text style={styles.songName}>Blackbear - idfc</Text>
+              <Text style={styles.songName}>{post.songName}</Text>
             </View>
           </View>
 
           <Image
             style={styles.songImage}
             source={{
-              uri: 'https://pbs.twimg.com/profile_images/1223706175910211584/tmu8d9fA.jpg',
+              uri: post.songImage,
             }}
           />
         </View>
