@@ -8,6 +8,7 @@
 
 import React from 'react';
 import type {Node} from 'react';
+import 'react-native-gesture-handler';
 import {
   SafeAreaView,
   ScrollView,
@@ -25,6 +26,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import RootNavigator from './navigation/AppNavigation';
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -60,9 +62,9 @@ const App: () => Node = () => {
   };
 
   return (
-    <SafeAreaView style={{flex:1}}>
+    <SafeAreaView style={{flex: 1,backgroundColor:'black'}}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <HomeScreen/>
+      <RootNavigator />
     </SafeAreaView>
   );
 };
