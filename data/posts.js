@@ -7,12 +7,12 @@ export default [
       id: 'u1',
       username: 'daviddobrik',
       imageUri:
-        'https://influencermarketinghub.com/wiki/wp-content/uploads/2020/08/1657369265111046_c5_720x720.jpeg',
+        'https://pbs.twimg.com/profile_images/1223706175910211584/tmu8d9fA.jpg',
     },
     description: 'hahahah oh boy @borat',
     songName: 'NF - The search',
     songImage:
-      'https://influencermarketinghub.com/wiki/wp-content/uploads/2020/08/1657369265111046_c5_720x720.jpeg',
+      'https://pbs.twimg.com/profile_images/1223706175910211584/tmu8d9fA.jpg',
     likes: 123,
     comments: 12,
     shares: 44,
@@ -26,12 +26,12 @@ export default [
       id: 'u1',
       username: 'Test',
       imageUri:
-        'https://influencermarketinghub.com/wiki/wp-content/uploads/2020/08/1657369265111046_c5_720x720.jpeg',
+        'https://pbs.twimg.com/profile_images/1223706175910211584/tmu8d9fA.jpg',
     },
     description: 'hahahah oh boy @borat',
     songName: 'NF - The search',
     songImage:
-      'https://influencermarketinghub.com/wiki/wp-content/uploads/2020/08/1657369265111046_c5_720x720.jpeg',
+      'https://pbs.twimg.com/profile_images/1223706175910211584/tmu8d9fA.jpg',
     likes: 123,
     comments: 12,
     shares: 44,
@@ -45,12 +45,12 @@ export default [
       id: 'u1',
       username: 'User 3',
       imageUri:
-        'https://influencermarketinghub.com/wiki/wp-content/uploads/2020/08/1657369265111046_c5_720x720.jpeg',
+        'https://pbs.twimg.com/profile_images/1223706175910211584/tmu8d9fA.jpg',
     },
     description: 'hahahah oh boy @borat',
     songName: 'NF - The search',
     songImage:
-      'https://influencermarketinghub.com/wiki/wp-content/uploads/2020/08/1657369265111046_c5_720x720.jpeg',
+      'https://pbs.twimg.com/profile_images/1223706175910211584/tmu8d9fA.jpg',
     likes: 123,
     comments: 12,
     shares: 44,
